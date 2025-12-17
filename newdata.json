@@ -1,0 +1,88 @@
+{
+  "categories": [
+  {
+    "id": "spindles",
+    "name": "Spindles",
+    "image": "/images/ring-spindle.jpg",
+    "items": [
+      { "id": "SP-001", "name": "Spindle 10mm", "price": 950, "image": "/images/beth fitting.jpg", "stock": 25 },
+      { "id": "SP-002", "name": "Spindle 12mm", "price": 1050, "image": "/images/cartridge.jpg", "stock": 20 },
+      { "id": "SP-003", "name": "Spindle 14mm", "price": 1150, "image": "/images/nipple.jpg", "stock": 18 },
+      { "id": "SP-004", "name": "Spindle 16mm", "price": 1250, "image": "/images/null.jpg", "stock": 15 },
+      { "id": "SP-005", "name": "Spindle 18mm", "price": 1350, "image": "/images/null1.jpg", "stock": 12 },
+      { "id": "SP-006", "name": "Heavy Spindle 10mm", "price": 1450, "image": "/images/beth fitting.jpg", "stock": 14 },
+      { "id": "SP-007", "name": "Heavy Spindle 12mm", "price": 1550, "image": "/images/cartridge.jpg", "stock": 16 },
+      { "id": "SP-008", "name": "Heavy Spindle 14mm", "price": 1650, "image": "/images/nipple.jpg", "stock": 10 },
+      { "id": "SP-009", "name": "Heavy Spindle 16mm", "price": 1750, "image": "/images/null.jpg", "stock": 9 },
+      { "id": "SP-010", "name": "Heavy Spindle 18mm", "price": 1850, "image": "/images/null1.jpg", "stock": 8 }
+    ]
+  },
+  {
+    "id": "nipples",
+    "name": "Pipe Nipples",
+    "image": "/images/pipe-nipple.png",
+    "items": [
+      { "id": "NP-001", "name": "Pipe Nipple 1/2 inch", "price": 90, "image": "/images/nipple.jpg", "stock": 120 },
+      { "id": "NP-002", "name": "Pipe Nipple 3/4 inch", "price": 110, "image": "/images/null.jpg", "stock": 100 },
+      { "id": "NP-003", "name": "Pipe Nipple 1 inch", "price": 140, "image": "/images/null1.jpg", "stock": 90 },
+      { "id": "NP-004", "name": "Brass Nipple 1/2 inch", "price": 160, "image": "/images/beth fitting.jpg", "stock": 80 },
+      { "id": "NP-005", "name": "Brass Nipple 3/4 inch", "price": 180, "image": "/images/cartridge.jpg", "stock": 75 },
+      { "id": "NP-006", "name": "Steel Nipple 1 inch", "price": 200, "image": "/images/nipple.jpg", "stock": 70 },
+      { "id": "NP-007", "name": "Long Pipe Nipple", "price": 220, "image": "/images/null.jpg", "stock": 65 },
+      { "id": "NP-008", "name": "Short Pipe Nipple", "price": 95, "image": "/images/null1.jpg", "stock": 130 },
+      { "id": "NP-009", "name": "Threaded Pipe Nipple", "price": 150, "image": "/images/beth fitting.jpg", "stock": 85 },
+      { "id": "NP-010", "name": "Industrial Pipe Nipple", "price": 260, "image": "/images/cartridge.jpg", "stock": 60 }
+    ]
+  },
+  {
+    "id": "cartridges",
+    "name": "Cartridges",
+    "image": "/images/cartridges.jpeg",
+    "items": [
+      { "id": "CT-001", "name": "Filter Cartridge Small", "price": 450, "image": "/images/cartridge.jpg", "stock": 55 },
+      { "id": "CT-002", "name": "Filter Cartridge Medium", "price": 650, "image": "/images/null.jpg", "stock": 48 },
+      { "id": "CT-003", "name": "Filter Cartridge Large", "price": 850, "image": "/images/null1.jpg", "stock": 40 },
+      { "id": "CT-004", "name": "Industrial Cartridge", "price": 1200, "image": "/images/beth fitting.jpg", "stock": 35 },
+      { "id": "CT-005", "name": "Oil Filter Cartridge", "price": 780, "image": "/images/cartridge.jpg", "stock": 50 },
+      { "id": "CT-006", "name": "Water Filter Cartridge", "price": 620, "image": "/images/nipple.jpg", "stock": 45 },
+      { "id": "CT-007", "name": "Dust Filter Cartridge", "price": 540, "image": "/images/null.jpg", "stock": 42 },
+      { "id": "CT-008", "name": "Air Filter Cartridge", "price": 590, "image": "/images/null1.jpg", "stock": 38 },
+      { "id": "CT-009", "name": "Heavy Duty Cartridge", "price": 1400, "image": "/images/beth fitting.jpg", "stock": 30 },
+      { "id": "CT-010", "name": "High Pressure Cartridge", "price": 1650, "image": "/images/cartridge.jpg", "stock": 25 }
+    ]
+  },
+  {
+    "id": "fittings",
+    "name": "Pipe Fittings",
+    "image": "/images/pipe-fittings.jpg",
+    "items": [
+      { "id": "PF-001", "name": "Elbow Fitting", "price": 90, "image": "/images/beth fitting.jpg", "stock": 200 },
+      { "id": "PF-002", "name": "Tee Fitting", "price": 110, "image": "/images/null.jpg", "stock": 180 },
+      { "id": "PF-003", "name": "Reducer Fitting", "price": 130, "image": "/images/null1.jpg", "stock": 160 },
+      { "id": "PF-004", "name": "Union Fitting", "price": 150, "image": "/images/cartridge.jpg", "stock": 150 },
+      { "id": "PF-005", "name": "Coupling Fitting", "price": 95, "image": "/images/nipple.jpg", "stock": 210 },
+      { "id": "PF-006", "name": "Socket Fitting", "price": 85, "image": "/images/null.jpg", "stock": 230 },
+      { "id": "PF-007", "name": "Cross Fitting", "price": 175, "image": "/images/null1.jpg", "stock": 120 },
+      { "id": "PF-008", "name": "Cap Fitting", "price": 70, "image": "/images/beth fitting.jpg", "stock": 260 },
+      { "id": "PF-009", "name": "Plug Fitting", "price": 65, "image": "/images/cartridge.jpg", "stock": 280 },
+      { "id": "PF-010", "name": "Industrial Fitting", "price": 240, "image": "/images/nipple.jpg", "stock": 100 }
+    ]
+  },
+  {
+    "id": "valves",
+    "name": "Valves",
+    "image": "/images/valves.jpeg",
+    "items": [
+      { "id": "VL-001", "name": "Ball Valve", "price": 650, "image": "/images/null1.jpg", "stock": 70 },
+      { "id": "VL-002", "name": "Gate Valve", "price": 980, "image": "/images/beth fitting.jpg", "stock": 55 },
+      { "id": "VL-003", "name": "Check Valve", "price": 720, "image": "/images/cartridge.jpg", "stock": 60 },
+      { "id": "VL-004", "name": "Globe Valve", "price": 1100, "image": "/images/nipple.jpg", "stock": 40 },
+      { "id": "VL-005", "name": "Butterfly Valve", "price": 1350, "image": "/images/null.jpg", "stock": 35 },
+      { "id": "VL-006", "name": "Mini Ball Valve", "price": 420, "image": "/images/null1.jpg", "stock": 90 },
+      { "id": "VL-007", "name": "Industrial Valve", "price": 1800, "image": "/images/beth fitting.jpg", "stock": 30 },
+      { "id": "VL-008", "name": "High Pressure Valve", "price": 2100, "image": "/images/cartridge.jpg", "stock": 25 },
+      { "id": "VL-009", "name": "Angle Valve", "price": 780, "image": "/images/nipple.jpg", "stock": 50 },
+      { "id": "VL-010", "name": "Control Valve", "price": 2500, "image": "/images/null.jpg", "stock": 20 }
+    ]
+  }]
+}

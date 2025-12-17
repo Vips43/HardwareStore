@@ -7,56 +7,72 @@ let cartIcon = document.getElementById("cartIcon")
 let cartContainer = document.getElementById("cartContainer")
 
 async function getProducts() {
-    const res = await fetch("./data.json");
-    const data = await res.json();
-    const cat = data.products.map(a => a.category)
-    const uniq = new Set(cat)
-    const uniqCat = [...uniq]
-    return { uniqCat, data };
+  const res = await fetch("./data.json");
+  const data = await res.json();
+  const cat = data.products.map(a => a.category)
+  const uniq = new Set(cat)
+  const uniqCat = [...uniq]
+  return { uniqCat, data };
+  
 }
 getProducts()
-function toggleMenus(el, val1, val2) {
-    el.classList.replace(val1, val2)
 
+function toggleMenus(el, val1, val2) {
+  el.classList.replace(val1, val2)
+  
 }
 
 closeLeft.addEventListener("click", () => {
-    toggleMenus(leftMenu, 'translate-x-0', '-translate-x-full')
+  toggleMenus(leftMenu, 'translate-x-0', '-translate-x-full')
 })
 openLeft.addEventListener("click", () => {
-    toggleMenus(leftMenu, '-translate-x-full', 'translate-x-0')
+  toggleMenus(leftMenu, '-translate-x-full', 'translate-x-0')
 })
 cartIcon.onclick = () => {
-    if (cartContainer.classList.contains('ytran')) {
-        toggleMenus(cartContainer, 'ytran', 'ydefault')
-    } else {
-        toggleMenus(cartContainer, 'ydefault', 'ytran')
-    }
+  if (cartContainer.classList.contains('ytran')) {
+    toggleMenus(cartContainer, 'ytran', 'ydefault')
+  } else {
+    toggleMenus(cartContainer, 'ydefault', 'ytran')
+  }
 }
 
 
 let HWProducts = JSON.parse(localStorage.getItem("HWProducts")) || { cardInfo: [] };
 
 function cartBtn(btn) {
-    const card = btn.closest(".card")
-    cardInfo = {
-        id: card.dataset.id,
-        img: card.querySelector(".img").src,
-        name: card.querySelector(".productName").textContent,
-        price: card.querySelector(".productPrice").textContent
-    }
-    HWProducts.cardInfo.push(cardInfo)
-    saveLocal()
+  const card = btn.closest(".card");
+  if (!card) return;
+  
+  const id = card.dataset.id;
+  
+  const exists = HWProducts.cardInfo.find(item => item.id === id);
+  
+  if (exists) {
+    exists.qty += 1;
+  } else {
+    const cardInfo = {
+      id,
+      img: card.querySelector(".img").src,
+      name: card.querySelector(".productName").textContent.trim(),
+      price: Number(
+        card.querySelector(".productPrice").textContent.replace(/[^\d]/g, "")
+      ),
+      qty: 1
+    };
+    HWProducts.cardInfo.push(cardInfo);
+  }
+  saveLocal();
+  cartUI();
 }
 
 
 clearCart.onclick = () => {
-    HWProducts = []
-    saveLocal()
+  HWProducts = []
+  saveLocal()
 }
 
 function saveLocal() {
-    localStorage.setItem("HWProducts", JSON.stringify(HWProducts))
-    console.log(HWProducts);
+  localStorage.setItem("HWProducts", JSON.stringify(HWProducts))
+  console.log(HWProducts);
 }
-// localStorage.removeItem("hardwareProducts")
+// localStorage.removeItem("HWProducts")

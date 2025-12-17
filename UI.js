@@ -1,5 +1,6 @@
 async function cardUI() {
   const { data } = await getProducts()
+  data.products.forEach(i => console.log(i.image))
   const fragment = document.createDocumentFragment();
   data.products.forEach(d => {
     const div = document.createElement("div")
@@ -38,6 +39,7 @@ const categoryUI = async () => {
 categoryUI()
 
 function cartUI() {
+  cartContainer.querySelector('div').innerHTML = ''
   const data = HWProducts;
   if (!data.cardInfo || data.cardInfo.length == 0) {
     cartContainer.innerHTML = `<p>No items</p>`
@@ -60,7 +62,7 @@ function cartUI() {
           <div class="flex items-start justify-start gap-1 text-xs">
             <button class="px-0.5 border border-gray-400 rounded-lg">
               <i class="fa-solid fa-minus -scale-[.7]"></i></button>
-            <span class="w-8 text-center bg-gray-100">3</span>
+            <span class="w-8 text-center bg-gray-100">${d.qty}</span>
             <button class="px-0.5 border border-gray-400 rounded-lg">
               <i class="fa-solid fa-plus -scale-[.7]"></i></button>
           </div>
