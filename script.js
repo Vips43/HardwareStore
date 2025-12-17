@@ -76,3 +76,10 @@ function saveLocal() {
   console.log(HWProducts);
 }
 // localStorage.removeItem("HWProducts")
+
+const dummy = async () => {
+  const res = await fetch('/newdata.json')
+  const data = await res.json()
+  console.log(data);
+}
+dummy()

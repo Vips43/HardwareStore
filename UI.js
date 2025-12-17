@@ -1,6 +1,5 @@
 async function cardUI() {
   const { data } = await getProducts()
-  data.products.forEach(i => console.log(i.image))
   const fragment = document.createDocumentFragment();
   data.products.forEach(d => {
     const div = document.createElement("div")
