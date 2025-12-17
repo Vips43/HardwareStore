@@ -1,14 +1,14 @@
 async function cardUI() {
-    const { data } = await getProducts()
-    const fragment = document.createDocumentFragment();
-    data.products.forEach(d => {
-        const div = document.createElement("div")
-        div.innerHTML = `
-            <div class="card w-48 h-72 flex flex-col p-2 justify-between items-center rounded-lg shadow-md">
+  const { data } = await getProducts()
+  const fragment = document.createDocumentFragment();
+  data.products.forEach(d => {
+    const div = document.createElement("div")
+    div.innerHTML = `
+            <div class="card w-48 h-72 flex flex-col p-2 justify-between items-center rounded-lg shadow-md" data-id="${d.id}">
               <div class="w-44 h-44">
                 <img loading='lazy' class='img h-44 lazy-img' data-src="${d.image}" alt="image">
               </div>
-              <div class="text-base flex flex-col justify-between">
+              <div class="text-base flex flex-col justify-between w-full">
                 <h4 class="productName font-semibold capitalize">${d.name}</h4>
                 <div class="flex items-center justify-between">
                     <h4 class="productPrice text-neutral-500 text-sm leading-tight">${d.price} ₹</h4>
@@ -16,41 +16,46 @@ async function cardUI() {
                 </div>
               </div>
             </div>`
-        fragment.append(div)
-    })
-    product.append(fragment)
-    initLazyImg()  //observer
+    fragment.append(div)
+  })
+  product.append(fragment)
+  initLazyImg()  //observer
 }
 cardUI()
 
 const categoryUI = async () => {
-    const { uniqCat } = await getProducts();
-    console.log(uniqCat);
-
-    const fragment = document.createDocumentFragment()
-    uniqCat.forEach(cat => {
-        const li = document.createElement("li");
-        li.className = 'bg-gray-100 p-1 text-base'
-        li.innerText = cat
-        fragment.append(li)
-    })
-    leftMenu.querySelector("ul").append(fragment);
+  const { uniqCat } = await getProducts();
+  const fragment = document.createDocumentFragment()
+  uniqCat.forEach(cat => {
+    const li = document.createElement("li");
+    li.className = 'bg-gray-100 p-1 text-base'
+    li.innerText = cat
+    fragment.append(li)
+  })
+  leftMenu.querySelector("ul").append(fragment);
 
 }
 categoryUI()
 
-function cartUI(){
-  const div = document.createElement('div');
-  div.className='m-2 space-y-2'
-  div.innerHTML=`
+function cartUI() {
+  const data = HWProducts;
+  if (!data || data.length == 0) {
+    cartContainer.innerHTML = `<p>No items</p>`
+    return
+  }
+  const fragment = document.createDocumentFragment()
+  data.forEach(d => {
+    const div = document.createElement('div');
+    div.className = 'm-2 space-y-2 overflow-y-auto'
+    div.innerHTML = `
       <div class="h-20 w-full border border-orange-200 bg-orange-100 py-2 px-1 flex gap-2 items-center rounded-md">
         <div class="h-full w-20 shrink-0">
-          <img class="h-full w-full object-cover hover:object-contain transition-all duration-300 rounded-md" src="images/beth fitting.jpg" alt="">
+          <img class="h-full w-full object-cover hover:object-contain transition-all duration-300 rounded-md" src="${d.img}" alt="">
         </div>
         <div class="flex flex-col justify-between min-w-0 text-sm w-full font-semibold">
           <div class="">
-            <h3 class="truncate">product name product name product nameproduct name product name</h3>
-            <p class="font-light text-neutral-700">price</p>
+            <h3 class="truncate">${d.name}</h3>
+            <p class="font-light text-neutral-700">${d.price}</p>
           </div>
           <div class="flex items-start justify-start gap-1 text-xs">
             <button class="px-0.5 border border-gray-400 rounded-lg">
@@ -62,6 +67,8 @@ function cartUI(){
         </div>
       </div>
   `;
-  cartContainer.querySelector('div').append(div);
+    fragment.append(div)
+  })
+  cartContainer.querySelector('div').append(fragment)
 }
 cartUI()

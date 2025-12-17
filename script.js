@@ -27,23 +27,36 @@ openLeft.addEventListener("click", () => {
     toggleMenus(leftMenu, '-translate-x-full', 'translate-x-0')
 })
 cartIcon.onclick = () => {
-    if (cartContainer.classList.contains('-translate-y-full')) {
-        toggleMenus(cartContainer, '-translate-y-full', 'translate-y-16')
+    if (cartContainer.classList.contains('ytran')) {
+        toggleMenus(cartContainer, 'ytran', 'ydefault')
     } else {
-        toggleMenus(cartContainer, 'translate-y-16','-translate-y-full')
+        toggleMenus(cartContainer, 'ydefault', 'ytran')
     }
 }
 
 
-let hardwareProducts = JSON.parse(localStorage.getItem("hardwareProducts")) || { cardInfo: [] };
+let HWProducts = JSON.parse(localStorage.getItem("HWProducts")) || { cardInfo: [] };
 
 function cartBtn(btn) {
     const card = btn.closest(".card")
     cardInfo = {
+        id: card.dataset.id,
         img: card.querySelector(".img").src,
         name: card.querySelector(".productName").textContent,
         price: card.querySelector(".productPrice").textContent
     }
-    hardwareProducts.cardInfo.push(cardInfo)
-    console.log(hardwareProducts);
+    HWProducts.push(cardInfo)
+    saveLocal()
 }
+
+
+clearCart.onclick = () => {
+    HWProducts = []
+    saveLocal()
+}
+
+function saveLocal() {
+    localStorage.setItem("HWProducts", JSON.stringify(HWProducts))
+    console.log(HWProducts);
+}
+// localStorage.removeItem("hardwareProducts")

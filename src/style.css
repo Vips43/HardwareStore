@@ -5,3 +5,15 @@
     filter: blur(10px);
     transition: filter 0.3s;
 }
+.hh{
+    height: calc(100vh-4.5rem);
+}
+.ytran{
+    transform: translateY(-2000px);
+}
+.ydefault{
+    transform: translateY(65px);
+}
+#cartContainer{
+    overflow-y: auto;
+}
