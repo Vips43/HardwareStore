@@ -9,9 +9,10 @@
     height: calc(100vh-4.5rem);
 }
 .ytran{
-    transform: translateY(-2000px);
+    transform: translateX(2000px);
 }
 .ydefault{
+    transform: translateX(65px);
     transform: translateY(65px);
 }
 #cartContainer{
