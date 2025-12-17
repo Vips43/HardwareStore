@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="src/style.css">
+  <title>Hardware mart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link rel="shortcut icon" href="/images/favIcon.png" type="image/x-icon">
+</head>
+
+<body class="max-w-3xl mx-auto shadow-md h-screen overflow-hidden flex flex-col">
+  <nav class="sticky top-0 bg-white shadow-md">
+    <div class="relative p-3">
+      <div class="grid grid-cols-3 bg-white">
+        <div id="openLeft" class="flex items-center cursor-pointer px-2.5 w-fit">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+        <div class="h-full w-full">
+          <img class="h-10 mx-auto" src="images/logo.png" alt="">
+        </div>
+        <!-- right nav -->
+        <section class="w-full flex items-center justify-around">
+          <div class="hover:text-blue-500 cursor-pointer">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div class="hover:text-orange-500 cursor-pointer">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div id="cartIcon" class="relative hover:text-orange-500 flex cursor-pointer">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span
+              class="text-xs text-white w-5 h-5 flex items-center justify-center rounded-full absolute -top-5 -right-5 bg-orange-500">0</span>
+          </div>
+          <div id="user" class="hover:text-orange-500 cursor-pointer">
+            <i class="fa-regular fa-user"></i>
+          </div>
+        </section>
+      </div>
+
+      <!-- left menu  -->
+      <div id="leftMenu" class="top-0 -translate-x-full h-full w-56 bg-white p-2 transition-transform duration-300 z-50 hidden">
+        <div id="closeLeft" class="w-fit px-2 py-1.5 text-xl ml-1 mt-1"><i class="fa-solid fa-xmark"></i></div>
+        <ul class="mt-10 space-y-1">
+          <!-- <li class="bg-gray-100 p-1 text-base">ihjidwdj</li> -->
+        </ul>
+      </div>
+
+      <!-- cart  -->
+      <section id="cartContainer"
+        class="top-16 right-0 -translate-y-full bg-orange-50 border
+         h-[calc(100vh-4rem)] w-sm transition-transform duration-300 z-50 hidden">
+        <div class="w-full p-2">
+          <div class="flex items-center justify-around">
+            <h3 class="font-semibold">Your cart items</h3>
+            <i id="clearCart" class="fa-solid fa-trash-can hover:text-orange-500 cursor-pointer"></i>
+          </div>
+
+          <!-- <div class="m-2 space-y-2">
+            <div class="w-full border border-orange-200 bg-orange-100 py-2 px-1 flex gap-2 items-center rounded-md">
+              <div class="h-full w-20 shrink-0">
+                <img class="h-full w-full object-cover hover:object-contain transition-all duration-300 rounded-md" src="images/beth fitting.jpg" alt="">
+              </div>
+              <div class="flex flex-col justify-between min-w-0 text-sm w-full font-semibold">
+                <div class="">
+                  <h3 class="truncate">product name product name product nameproduct name product name</h3>
+                  <p class="font-light text-neutral-700">price</p>
+                </div>
+                <div class="flex items-start justify-start gap-2 text-sm">
+                  <button class="px-0.5 border border-gray-400 rounded-lg">
+                    <i class="fa-solid fa-minus"></i></button>
+                  <span class="w-8 text-center bg-gray-100">3</span>
+                  <button class="px-0.5 border border-gray-400 rounded-lg">
+                    <i class="fa-solid fa-plus"></i></button>
+                </div>
+              </div>
+            </div>
+            
+          </div> -->
+
+        </div>
+      </section>
+      <!-- cart close  -->
+    </div>
+  </nav>
+
+  <!-- main section  -->
+  <main class="flex flex-col max-h-[97vh] border m-2 flex-1 p-5">
+    <!-- signup form  -->
+    <form action="" id="signupForm"
+      class="w-full h-screen top-0 left-0 absolute bg-black/50 overflow-hidden items-center hidden">
+    </form>
+    <form id="loginForm" action="" class="absolute top-0 left-0 h-screen w-full bg-black/30 place-items-center hidden">
+    </form>
+    <section class="flex-1 border overflow-y-auto p-5 transition">
+      <div id="product" class="flex flex-wrap justify-center m-1 border gap-3">
+
+        <!-- <div class="w-48 h-72 flex flex-col justify-between p-2 shadow-md">
+          <div>
+            <img src="images/beth fitting.jpg" alt="">
+          </div>
+          <div class="text-base flex flex-col justify-between leading-10">
+            <h4 class="font-semibold capitalize">product name</h4>
+            <div class="flex items-center justify-between">
+              <h4 class="text-neutral-500 text-sm">123₹</h4>
+              <button class="px-2 p-0.5 text-xs border rounded-2xl text-white bg-red-800" onclick="cartBtn(this)">Add to
+                cart</button>
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="observer.js"></script>
+  <script src="UI.js"></script>
+  <script src="signup.js"></script>
+  <script src="login.js"></script>
+
+</body>
+
+</html>

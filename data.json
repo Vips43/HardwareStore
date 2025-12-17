@@ -1,0 +1,170 @@
+{
+  "totalProducts": 102,
+  "products": [
+    {
+      "id": 1,
+      "name": "Steel Hammer 16oz",
+      "price": 450,
+      "category": "Tools",
+      "quantity": 120,
+      "image": "/images/beth fitting.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Claw Hammer Heavy Duty",
+      "price": 520,
+      "category": "Tools",
+      "quantity": 90,
+      "image": "/images/cartridge.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Flat Head Screwdriver",
+      "price": 180,
+      "category": "Tools",
+      "quantity": 200,
+      "image": "/images/nipple.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Electric Drill Machine",
+      "price": 2850,
+      "category": "Tools",
+      "quantity": 40,
+      "image": "/images/null.jpg"
+    },
+
+    {
+      "id": 21,
+      "name": "Steel Nails 2 inch (1kg)",
+      "price": 140,
+      "category": "Fasteners",
+      "quantity": 380,
+      "image": "/images/null1.jpg"
+    },
+    {
+      "id": 22,
+      "name": "Wood Screws Pack (100 pcs)",
+      "price": 210,
+      "category": "Fasteners",
+      "quantity": 260,
+      "image": "/images/beth fitting.jpg"
+    },
+    {
+      "id": 23,
+      "name": "Hex Bolts M8",
+      "price": 320,
+      "category": "Fasteners",
+      "quantity": 180,
+      "image": "/images/cartridge.jpg"
+    },
+    {
+      "id": 24,
+      "name": "Door Hinges Steel",
+      "price": 220,
+      "category": "Fasteners",
+      "quantity": 150,
+      "image": "/images/nipple.jpg"
+    },
+
+    {
+      "id": 41,
+      "name": "PVC Pipe 1 inch",
+      "price": 280,
+      "category": "Plumbing",
+      "quantity": 140,
+      "image": "/images/null.jpg"
+    },
+    {
+      "id": 42,
+      "name": "PVC Elbow Joint",
+      "price": 35,
+      "category": "Plumbing",
+      "quantity": 500,
+      "image": "/images/null1.jpg"
+    },
+    {
+      "id": 43,
+      "name": "Bathroom Faucet",
+      "price": 1250,
+      "category": "Plumbing",
+      "quantity": 60,
+      "image": "/images/beth fitting.jpg"
+    },
+    {
+      "id": 44,
+      "name": "Kitchen Sink Steel",
+      "price": 3200,
+      "category": "Plumbing",
+      "quantity": 40,
+      "image": "/images/cartridge.jpg"
+    },
+
+    {
+      "id": 61,
+      "name": "Interior Wall Paint 10L",
+      "price": 2450,
+      "category": "Paint & Finishing",
+      "quantity": 55,
+      "image": "/images/nipple.jpg"
+    },
+    {
+      "id": 62,
+      "name": "Primer 10L",
+      "price": 1650,
+      "category": "Paint & Finishing",
+      "quantity": 70,
+      "image": "/images/beth fitting.jpg"
+    },
+    {
+      "id": 63,
+      "name": "Paint Brush 4 inch",
+      "price": 140,
+      "category": "Paint & Finishing",
+      "quantity": 210,
+      "image": "/images/null.jpg"
+    },
+    {
+      "id": 64,
+      "name": "Paint Roller",
+      "price": 180,
+      "category": "Paint & Finishing",
+      "quantity": 190,
+      "image": "/images/null1.jpg"
+    },
+
+    {
+      "id": 81,
+      "name": "Garden Shovel Steel",
+      "price": 680,
+      "category": "Lawn & Garden",
+      "quantity": 90,
+      "image": "/images/beth fitting.jpg"
+    },
+    {
+      "id": 82,
+      "name": "Watering Can 10L",
+      "price": 260,
+      "category": "Lawn & Garden",
+      "quantity": 140,
+      "image": "/images/cartridge.jpg"
+    },
+
+    {
+      "id": 101,
+      "name": "Floor Cleaning Liquid 2L",
+      "price": 260,
+      "category": "Household & Cleaning",
+      "quantity": 150,
+      "image": "/images/nipple.jpg"
+    },
+    {
+      "id": 102,
+      "name": "Floor Mop",
+      "price": 380,
+      "category": "Household & Cleaning",
+      "quantity": 90,
+      "image": "/images/null1.jpg"
+    }
+  ]
+}

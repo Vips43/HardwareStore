@@ -1,0 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+.lazy-img{
+    filter: blur(10px);
+    transition: filter 0.3s;
+}
