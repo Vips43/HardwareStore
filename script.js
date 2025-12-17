@@ -45,7 +45,7 @@ function cartBtn(btn) {
         name: card.querySelector(".productName").textContent,
         price: card.querySelector(".productPrice").textContent
     }
-    HWProducts.push(cardInfo)
+    HWProducts.cardInfo.push(cardInfo)
     saveLocal()
 }
 

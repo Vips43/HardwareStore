@@ -39,12 +39,12 @@ categoryUI()
 
 function cartUI() {
   const data = HWProducts;
-  if (!data || data.length == 0) {
+  if (!data.cardInfo || data.cardInfo.length == 0) {
     cartContainer.innerHTML = `<p>No items</p>`
-    return
+    return;
   }
   const fragment = document.createDocumentFragment()
-  data.forEach(d => {
+  data.cardInfo.forEach(d => {
     const div = document.createElement('div');
     div.className = 'm-2 space-y-2 overflow-y-auto'
     div.innerHTML = `
