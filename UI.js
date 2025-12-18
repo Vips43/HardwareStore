@@ -1,27 +1,68 @@
-async function cardUI() {
-  const { data } = await getProducts()
-  const fragment = document.createDocumentFragment();
-  data.products.forEach(d => {
+document.addEventListener("DOMContentLoaded", () => {
+  categoryCardsUI()
+  // cardUI()
+  cartUI()
+})
+window.addEventListener('popstate', async (event) => {
+  const state = event.state;
+  
+  if (state && state.view === 'products') {
+    const { cat } = await dummy();
+    const category = cat.find(c => String(c.id) === state.categoryId);
+    if (category) cardUI(category);
+  } else {
+    categoryCardsUI();
+  }
+});
+async function categoryCardsUI() {
+  product.innerHTML = ``
+  const { cat } = await dummy();
+  cat.forEach(d => {
     const div = document.createElement("div")
+    div.className = `catCard transition-all`
+    div.setAttribute("data-id", `${d.id}`)
     div.innerHTML = `
-            <div class="card w-48 h-72 flex flex-col p-2 justify-between items-center rounded-lg shadow-md" data-id="${d.id}">
-              <div class="w-44 h-44">
-                <img loading='lazy' class='img h-44 lazy-img' data-src="${d.image}" alt="image">
-              </div>
-              <div class="text-base flex flex-col justify-between w-full">
-                <h4 class="productName font-semibold capitalize">${d.name}</h4>
-                <div class="flex items-center justify-between">
-                    <h4 class="productPrice text-neutral-500 text-sm leading-tight">${d.price} ₹</h4>
-                    <button class="px-2 p-0.5 text-xs border rounded-2xl text-white bg-red-800" onclick="cartBtn(this)">Add to cart</button>
-                </div>
-              </div>
-            </div>`
+    <a href="#${d.id}" target='_parent'>
+    <div data-id='${d.id}' class="w-48 h-60 flex flex-col justify-between p-2 shadow-md">
+      <div>
+        <img src="${d.image}" alt="">
+      </div>
+      <div class="text-base flex flex-col justify-between leading-10">
+        <h4 class="font-semibold capitalize">${d.name}</h4>
+      </div>
+    </div></a>
+    `
+    product.append(div)
+  });
+}
+async function fun() {
+
+}
+async function cardUI(data) {
+  product.innerHTML = ``
+  const fragment = document.createDocumentFragment();
+  data.items.forEach(d => {
+    const div = document.createElement("div")
+    div.setAttribute("id", d.id)
+    div.innerHTML = `
+    <div class="card w-48 h-72 flex flex-col p-2 justify-between items-center rounded-lg shadow-md" data-id="${d.id}">
+      <div class="w-44 h-44">
+        <img loading='lazy' class='img h-44 lazy-img' data-src="${d.image}" alt="image">
+      </div>
+      <div class="text-base flex flex-col justify-between w-full">
+        <h4 class="productName font-semibold capitalize">${d.name}</h4>
+        <div class="flex items-center justify-between">
+            <h4 class="productPrice text-neutral-500 text-sm leading-tight">${d.price} ₹</h4>
+            <button class="px-2 p-0.5 text-xs border rounded-2xl text-white bg-red-800" onclick="cartBtn(this)">Add to cart</button>
+        </div>
+      </div>
+    </div>`
     fragment.append(div)
   })
   product.append(fragment)
   initLazyImg()  //observer
 }
-cardUI()
+// cardUI()
 
 const categoryUI = async () => {
   const { uniqCat } = await getProducts();
@@ -38,10 +79,10 @@ const categoryUI = async () => {
 categoryUI()
 
 function cartUI() {
-  cartContainer.querySelector('div').innerHTML = ''
+  cartContainer.querySelector('.container').innerHTML = ''
   const data = HWProducts;
   if (!data.cardInfo || data.cardInfo.length == 0) {
-    cartContainer.innerHTML = `<p>No items</p>`
+    cartContainer.querySelector('.container').innerHTML = `<p class='text-center'>Cart is empty</p>`
     return;
   }
   const fragment = document.createDocumentFragment()
@@ -70,6 +111,6 @@ function cartUI() {
   `;
     fragment.append(div)
   })
-  cartContainer.querySelector('div').append(fragment)
+  cartContainer.querySelector('.container').append(fragment)
 }
 cartUI()

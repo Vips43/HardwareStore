@@ -13,15 +13,14 @@ async function getProducts() {
   const uniq = new Set(cat)
   const uniqCat = [...uniq]
   return { uniqCat, data };
-  
+
 }
 getProducts()
 
 function toggleMenus(el, val1, val2) {
   el.classList.replace(val1, val2)
-  
-}
 
+}
 closeLeft.addEventListener("click", () => {
   toggleMenus(leftMenu, 'translate-x-0', '-translate-x-full')
 })
@@ -36,17 +35,13 @@ cartIcon.onclick = () => {
   }
 }
 
-
 let HWProducts = JSON.parse(localStorage.getItem("HWProducts")) || { cardInfo: [] };
 
 function cartBtn(btn) {
   const card = btn.closest(".card");
   if (!card) return;
-  
   const id = card.dataset.id;
-  
-  const exists = HWProducts.cardInfo.find(item => item.id === id);
-  
+  const exists = (HWProducts.cardInfo || []).find(item => item.id === id);
   if (exists) {
     exists.qty += 1;
   } else {
@@ -65,9 +60,10 @@ function cartBtn(btn) {
   cartUI();
 }
 
-
 clearCart.onclick = () => {
+  console.log('clearing ....');
   HWProducts = []
+  cartUI();
   saveLocal()
 }
 
@@ -76,10 +72,21 @@ function saveLocal() {
   console.log(HWProducts);
 }
 // localStorage.removeItem("HWProducts")
-
 const dummy = async () => {
-  const res = await fetch('/newdata.json')
-  const data = await res.json()
-  console.log(data);
+  const res = await fetch('/newdata.json');
+  const data = await res.json();
+  const cat = data.categories.map(cat => cat);
+  return { cat, data }
 }
-dummy()
+// dummy()
+product.onclick = async (e) => {
+  const card = e.target.closest(".catCard");
+  if (!card) return;
+
+  const { cat } = await dummy()
+  const cardID = card.dataset.id
+  console.log(cardID);
+  const n = cat.find(c => c.id === cardID)
+  console.log(n.items);
+  cardUI(n)
+}
