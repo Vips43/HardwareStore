@@ -7,7 +7,7 @@ window.addEventListener('popstate', async (event) => {
   const state = event.state;
   
   if (state && state.view === 'products') {
-    const { cat } = await dummy();
+    const { cat } = await getProducts();
     const category = cat.find(c => String(c.id) === state.categoryId);
     if (category) cardUI(category);
   } else {
@@ -16,7 +16,7 @@ window.addEventListener('popstate', async (event) => {
 });
 async function categoryCardsUI() {
   product.innerHTML = ``
-  const { cat } = await dummy();
+  const { cat } = await getProducts();
   cat.forEach(d => {
     const div = document.createElement("div")
     div.className = `catCard transition-all`
@@ -65,7 +65,7 @@ async function cardUI(data) {
 // cardUI()
 
 const categoryUI = async () => {
-  const { uniqCat } = await getProducts();
+  const { uniqCat } = await getCat();
   const fragment = document.createDocumentFragment()
   uniqCat.forEach(cat => {
     const li = document.createElement("li");

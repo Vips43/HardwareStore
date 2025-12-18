@@ -5,17 +5,20 @@ let leftMenu = document.getElementById("leftMenu")
 let clearCart = document.getElementById("clearCart")
 let cartIcon = document.getElementById("cartIcon")
 let cartContainer = document.getElementById("cartContainer")
+const searchOpen = document.querySelector(".search i")
+const searchBar = document.querySelector(".search-bar"),
+  searchBarClose = searchBar.querySelector(".search-bar .fa-xmark")
+search = searchBar.querySelector(".search-bar .fa-magnifying-glass")
+searchInput = searchBar.querySelector("input")
 
-async function getProducts() {
+async function getCat() {
   const res = await fetch("./data.json");
   const data = await res.json();
   const cat = data.products.map(a => a.category)
   const uniq = new Set(cat)
   const uniqCat = [...uniq]
   return { uniqCat, data };
-
 }
-getProducts()
 
 function toggleMenus(el, val1, val2) {
   el.classList.replace(val1, val2)
@@ -72,7 +75,7 @@ function saveLocal() {
   console.log(HWProducts);
 }
 // localStorage.removeItem("HWProducts")
-const dummy = async () => {
+const getProducts = async () => {
   const res = await fetch('/newdata.json');
   const data = await res.json();
   const cat = data.categories.map(cat => cat);
@@ -83,10 +86,33 @@ product.onclick = async (e) => {
   const card = e.target.closest(".catCard");
   if (!card) return;
 
-  const { cat } = await dummy()
+  const { cat } = await getProducts()
   const cardID = card.dataset.id
   console.log(cardID);
   const n = cat.find(c => c.id === cardID)
   console.log(n.items);
   cardUI(n)
+}
+
+searchOpen.onclick = () => {
+  searchBar.classList.replace("hidden", 'flex')
+  searchInput.focus()
+}
+searchBarClose.onclick = () => {
+  searchBar.classList.replace("flex", 'hidden')
+}
+search.onclick = () => {
+  console.log(searchInput.value)
+}
+searchInput.onkeyup = (e) => {
+  console.log(e.target.value);
+  if (searchInput.value.length > 3){
+    seachFind()
+  }
+}
+async function seachFind() {
+  const { cat } = await getProducts();
+  const searchedProducts = cat.flatMap(c => c.items.filter(it => it.name.toLowerCase().includes(searchInput.value.toLowerCase())))
+  console.log(searchedProducts);
+  
 }
