@@ -10,6 +10,7 @@ const searchBar = document.querySelector(".search-bar"),
   searchBarClose = searchBar.querySelector(".search-bar .fa-xmark")
 search = searchBar.querySelector(".search-bar .fa-magnifying-glass")
 searchInput = searchBar.querySelector("input")
+searchDropdown = searchBar.querySelector(".search-dropdown")
 
 async function getCat() {
   const res = await fetch("./data.json");
@@ -106,7 +107,7 @@ search.onclick = () => {
 }
 searchInput.onkeyup = (e) => {
   console.log(e.target.value);
-  if (searchInput.value.length > 3){
+  if (searchInput.value.length > 3) {
     seachFind()
   }
 }
@@ -114,5 +115,22 @@ async function seachFind() {
   const { cat } = await getProducts();
   const searchedProducts = cat.flatMap(c => c.items.filter(it => it.name.toLowerCase().includes(searchInput.value.toLowerCase())))
   console.log(searchedProducts);
-  
+  searchDropdown.classList.remove("hidden")
+  searchDropdown.innerHTML = ``;
+  const ul = document.createElement("ul")
+  ul.className = `p-2 bg-neutral-50 space-y-1 text-sm`
+  searchedProducts.forEach(pr => {
+    let li = document.createElement('li')
+    li.className = `bg-neutral-200 p-1 capitalize cursor-pointer`
+    li.innerHTML = pr.name
+    ul.append(li)
+  })
+  searchDropdown.append(ul)
+  searchDropdown.addEventListener("click", (e) => {
+    if (e.target.tagName !== "LI") return
+    else {
+      searchInput.value = e.target.textContent;
+      searchDropdown.classList.add('hidden')
+    }
+  })
 }
