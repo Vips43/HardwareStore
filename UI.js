@@ -47,7 +47,7 @@ async function cardUI(data) {
     div.innerHTML = `
     <div class="card w-48 h-72 flex flex-col p-2 justify-between items-center rounded-lg shadow-md" data-id="${d.id}">
       <div class="w-44 h-44">
-        <img loading='lazy' class='img h-44 lazy-img' data-src="${d.image}" alt="image">
+        <img loading='lazy' class='img h-44 opacity-0 lazy-img' data-src="${d.image}" alt="image">
       </div>
       <div class="text-base flex flex-col justify-between w-full">
         <h4 class="productName font-semibold capitalize">${d.name}</h4>

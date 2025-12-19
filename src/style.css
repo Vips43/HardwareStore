@@ -1,9 +1,10 @@
 *{
     box-sizing: border-box;
+    transition: all .3s ease-in-out;
 }
 .lazy-img{
-    filter: blur(10px);
-    transition: filter 0.3s;
+    opacity: 1;
+    transition: all 0.3s;
 }
 .hh{
     height: calc(100vh-4.5rem);
