@@ -104,7 +104,9 @@ function cartUI() {
               <i class="fa-solid fa-minus -scale-[.7]"></i></button>
             <span class="w-8 text-center bg-gray-100">${d.qty}</span>
             <button class="px-0.5 border border-gray-400 rounded-lg">
-              <i class="fa-solid fa-plus -scale-[.7]"></i></button>
+              <i class="fa-solid fa-plus -scale-[.7]">
+              </i>
+            </button>
           </div>
         </div>
       </div>
