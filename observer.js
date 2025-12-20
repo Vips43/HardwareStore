@@ -8,7 +8,7 @@ function initLazyImg() {
         img.src = img.dataset.src;
         
         img.onload = () => {
-          img.classList.remove("lazy-img");
+          img.classList.add("lazy-img");
         };
         
         // observer.unobserve(img); 
@@ -21,7 +21,7 @@ function initLazyImg() {
     }
   );
   
-  // 👇 DOM already exists, direct select
+  // DOM already exists, direct select
   document.querySelectorAll("img[data-src]").forEach(img => {
     observer.observe(img);
   });
